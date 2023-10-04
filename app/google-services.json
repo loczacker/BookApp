@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "99767965199",
+    "project_id": "bookapp-fbf30",
+    "storage_bucket": "bookapp-fbf30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99767965199:android:addf67ddf868c442ca357a",
+        "android_client_info": {
+          "package_name": "com.zacker.bookapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0dI7qAom2X7HT7U1SQwRzXp05Do3agLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

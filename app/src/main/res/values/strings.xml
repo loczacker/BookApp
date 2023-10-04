@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">BookApp</string>
+    <string name="awesome_chat"><font font="@font/exo_black">Awesome</font><font font="@font/exo_italic"> chat</font></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="search_message">Tìm kiếm tin nhắn</string>
+    <string name="agree">Đồng ý</string>
+    <string name="cancel">HỦY</string>
+    <string name="sent">GỬI</string>
+    <string name="image">Hình ảnh</string>
+    <string name="sticker">Sticker</string>
+    <string name="not_found">Không tìm thấy kết quả phù hợp</string>
+    <string name="write_to_read">Enter How Much Cookies You Want</string>
+    <string name="cancel_text">HỦY</string>
+    <string name="searchFriend">Tìm kiếm bạn bè</string>
+    <string name="not_empty_message">Không được để trống tin nhắn</string>
+    <string name="change_profile">Chỉnh sửa thông tin</string>
+    <string name="save">Lưu</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="name">Họ và tên</string>
+    <string name="date">Ngày sinh</string>
+    <string name="do_you_want_sign_out">Bạn có muốn đăng xuất tài khoản không</string>
+    <string name="refuse">Từ chối</string>
+    <string name="change_english">Bạn có muốn đổi sang tiếng anh không ? </string>
+    <string name="add_Friend">Kết bạn</string>
+    <string name="add_friend">Lời mời kết bạn</string>
+    <string name="sent_request_friend">Đã gửi kết bạn</string>
+    <string name="message">Tin nhắn</string>
+    <string name="friend">Bạn bè</string>
+    <string name="forgot_password">Nhập email cần khôi phục mật khẩu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -36,17 +36,17 @@ android {
     buildFeatures {
         viewBinding true
         dataBinding true
-
     }
 }
 
 dependencies {
 
+    implementation "androidx.fragment:fragment-ktx:1.6.1"
+
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-auth-ktx")
 
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
-    implementation 'com.facebook.android:facebook-android-sdk:8.x'
 
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.3.1"
     implementation "androidx.lifecycle:lifecycle-livedata:2.3.1"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/border_brown.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="8dp" /> <!-- Điều chỉnh bán kính đối tượng cong (rounded) ở đây -->
+            <stroke
+                android:width="2dp"
+                android:color="#00838F" /> <!-- Màu nâu: #8B4513 -->
+        </shape>
+    </item>
+</layer-list>
+

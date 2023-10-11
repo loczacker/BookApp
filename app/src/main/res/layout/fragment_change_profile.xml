@@ -1,166 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_change"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    android:orientation="vertical"
-    android:weightSum="10">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.zacker.bookapp.ui.changeProfile.ChangeProfileViewModel" />
+    </data>
 
     <LinearLayout
+        android:id="@+id/layout_change"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="10dp">
-
-        <ImageButton
-            android:id="@+id/img_back_home_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_back"
-            android:importantForAccessibility="no" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:fontFamily="@font/lato_bold"
-            android:text="@string/change_profile"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tv_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:fontFamily="@font/lato_medium"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
-        android:background="@drawable/custom_recycle_view"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        android:weightSum="7">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            tools:ignore="NestedWeights">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_ava"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/profile"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/img_camera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="148dp"
-                android:background="@drawable/changeimg"
-                app:layout_constraintStart_toStartOf="@+id/img_ava"
-                app:layout_constraintTop_toTopOf="@+id/img_ava" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:weightSum="10">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/img_back_home_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_back"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_medium"
-                android:text="@string/name"
-                android:textColor="#363E36"
-                android:textSize="14sp" />
+                android:layout_marginStart="70dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/change_profile"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/edt_change_name"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_done"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_baseline_supervisor_account_24"
+                android:layout_marginLeft="70dp"
                 android:fontFamily="@font/lato_medium"
-                android:hint="@string/name" />
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:layout_weight="9"
+            android:background="@drawable/custom_recycle_view"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:weightSum="7">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_medium"
-                android:text="@string/phone"
-                android:textColor="#363E36"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/ed_phone_change"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:drawableEnd="@drawable/ic_telephone"
-                android:fontFamily="@font/lato_medium"
-                android:hint="@string/phone"
-                android:inputType="number"
-                tools:ignore="TextFields" />
-        </LinearLayout>
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                tools:ignore="NestedWeights">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_ava"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_medium"
-                android:text="@string/date"
-                android:textColor="#363E36"
-                android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/img_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="148dp"
+                    android:background="@drawable/changeimg"
+                    app:layout_constraintStart_toStartOf="@+id/img_ava"
+                    app:layout_constraintTop_toTopOf="@+id/img_ava" />
 
-            <EditText
-                android:id="@+id/ed_birthday_change"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_medium"
-                android:inputType="none"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                app:drawableEndCompat="@drawable/ic_birthday" />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="@string/name"
+                    android:textColor="#363E36"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_change_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_baseline_supervisor_account_24"
+                    android:fontFamily="@font/lato_medium"
+                    android:hint="@string/name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="@string/phone"
+                    android:textColor="#363E36"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/ed_phone_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:drawableEnd="@drawable/ic_telephone"
+                    android:fontFamily="@font/lato_medium"
+                    android:hint="@string/phone"
+                    android:inputType="number"
+                    tools:ignore="TextFields" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:text="@string/date"
+                    android:textColor="#363E36"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/ed_birthday_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_medium"
+                    android:inputType="none"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    app:drawableEndCompat="@drawable/ic_birthday" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

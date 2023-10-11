@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="5dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/img_back_home_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back_2"
+            android:importantForAccessibility="no"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tv_mess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tất cả"
+            android:textSize="27sp"
+            android:textColor="#1565C0"
+            android:fontFamily="@font/lato_medium"
+            android:layout_marginTop="10dp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_all_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="5dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

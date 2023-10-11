@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp">
+            <ImageView
+                android:id="@+id/img_book"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/an_cu_ba_nam" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:fontFamily="@font/lato_bold"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Chưởng Môn Sư Thúc Không Thể Nào Là Phàm Nhân" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Tác giả: " />
+
+                <TextView
+                    android:id="@+id/tv_name_writer"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#00695C"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/lato_bold"
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    android:text="Tao Tien Loc" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_cancel"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/delete" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="Thể loại: " />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_width="120dp"
+                    android:layout_height="20dp"
+                    android:textColor="#00695C"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:fontFamily="@font/lato_bold"
+                    android:textSize="15sp"
+                    android:text="Tiên hiệp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

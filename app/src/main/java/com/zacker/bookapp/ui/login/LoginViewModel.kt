@@ -22,7 +22,7 @@ class LoginViewModel: ViewModel() {
     val showToast: LiveData<Event<Boolean>>
         get() = _showToast
 
-    fun showToast() {
+    private fun showToast() {
         _showToast.value = Event(true) // run immediately => chay ngay lap tuc
         _showToast.postValue(Event(true)) // handler.post chay sau 1 chut nhung khong anh huong den performance
 //        _showToast.postValue(true)
@@ -36,6 +36,7 @@ class LoginViewModel: ViewModel() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     resultData.postValue(true)
+                    showToast()
                 } else {
                     resultData.postValue(false)
                 }

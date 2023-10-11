@@ -20,7 +20,6 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
-    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,6 +69,11 @@ class LoginFragment : Fragment() {
                 NavHostFragment.findNavController(this).navigate(R.id.login_to_register, null)
             }
         }
+        viewModel.showToast.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let {
+                Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun changeColorButton() {
@@ -81,8 +85,10 @@ class LoginFragment : Fragment() {
                     and binding.edPassword.text!!.length >0
                 ) {
                     binding.btnLogin.setBackgroundResource(R.drawable.buttonblue)
+                    binding.btnLogin.isEnabled = true
                 } else {
                     binding.btnLogin.setBackgroundResource(R.drawable.button_white)
+                    binding.btnLogin.isEnabled = false
                 }
             }
         })
@@ -92,8 +98,10 @@ class LoginFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 if (binding.edEmail.text!!.length and binding.edPassword.text!!.length > 0) {
                     binding.btnLogin.setBackgroundResource(R.drawable.buttonblue)
+                    binding.btnLogin.isEnabled = true
                 } else {
                     binding.btnLogin.setBackgroundResource(R.drawable.button_white)
+                    binding.btnLogin.isEnabled = false
                 }
             }
         })
@@ -118,6 +126,7 @@ class LoginFragment : Fragment() {
         }
         dialogBinding.btnOk.setOnClickListener {
             val forgotPass = dialogBinding.etEmail.text
+            val firebaseAuth = FirebaseAuth.getInstance()
             firebaseAuth.sendPasswordResetEmail(forgotPass.toString())
                 .addOnSuccessListener {
                     dialogBinding.etEmail.clearFocus()

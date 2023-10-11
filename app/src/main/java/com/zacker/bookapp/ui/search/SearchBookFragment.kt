@@ -1,4 +1,4 @@
-package com.zacker.bookapp.ui.profile
+package com.zacker.bookapp.ui.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.zacker.bookapp.R
 
-class ProfileFragment : Fragment() {
+
+class SearchBookFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    ): View {
+        return inflater.inflate(R.layout.fragment_search_book, container, false)
     }
-
 }

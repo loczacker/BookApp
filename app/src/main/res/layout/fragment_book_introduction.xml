@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.bookintroduction.BookIntroductionFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:context=".ui.bookIntroduction.BookIntroductionFragment">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back_2"
+            android:importantForAccessibility="no"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent"
+            android:layout_height="200dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/img_book"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/an_cu_ba_nam" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name_book"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:ellipsize="end"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lato_bold"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    tools:text="Chưởng Môn Sư Thúc Không Thể Nào Là Phàm Nhân" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="Tác giả: " />
+
+                    <TextView
+                        android:id="@+id/tv_name_writer"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:textColor="#00695C"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/lato_bold"
+                        android:maxLines="1"
+                        android:textSize="15sp"
+                        tools:text="Tao Tien Loc" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="Thể loại: " />
+
+                    <TextView
+                        android:id="@+id/tv_category"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:textColor="#00695C"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:fontFamily="@font/lato_bold"
+                        android:textSize="15sp"
+                        tools:text="Tiên hiệp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#999999" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Giới thiệu"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:ellipsize="end"
+                android:maxLines="5"
+                android:layout_margin="8dp"
+                android:textColor="#999999"
+                android:textSize="22sp"
+                tools:text="Vậy, hãy đón đọc Tiểu Diêm Vương Lạc Vào Cuộc Sống Trần Gian để tìm hiểu thêm về cuộc phiêu lưu đầy bất ngờ của các nhân vật này nhé!" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/btn_love"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btn_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_pressed_color"
+                android:text="Yêu thích"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="25dp"/>
+
+            <Button
+                android:id="@+id/btn_read"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_pressed_read_blue"
+                android:text="Đọc truyện"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_love"
+                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

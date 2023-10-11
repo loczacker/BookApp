@@ -44,6 +44,7 @@ class SplashFragment : Fragment() {
             } else {
                 NavHostFragment.findNavController(this).navigate(R.id.splash_to_home, null)
             }
+//            NavHostFragment.findNavController(this).navigate(R.id.splash_to_login, null)
         }
     }
 }

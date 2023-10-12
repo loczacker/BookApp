@@ -36,7 +36,7 @@ class BookIntroductionFragment : Fragment() {
         if (args != null) {
             val selectedBook = args.getSerializable("selectedBook") as? BooksModel
             if (selectedBook != null) {
-                viewModel.setNameBook("${selectedBook?.nameBook}")
+                viewModel.setNameBook("${selectedBook.nameBook}")
                 binding.tvNameBook.text = selectedBook.nameBook
                 binding.tvNameWriter.text = selectedBook.writerName
                 binding.tvCategory.text = selectedBook.category

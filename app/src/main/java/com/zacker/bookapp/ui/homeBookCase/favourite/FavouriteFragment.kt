@@ -88,12 +88,19 @@ class FavouriteFragment : Fragment(), FavouriteAdapter.OnBookItemClickListener,
         val likeBookRef = database.reference.child("Users").child(uidUser.toString()).child("likeBook")
         likeBookRef.child(nameBook).removeValue()
             .addOnSuccessListener {
-                Toast.makeText(activity, "Đã bỏ thích truyện ${book.nameBook}", Toast.LENGTH_SHORT).show()
+                // Remove the book from the local list
+                val removed = listFavouriteBook.remove(book)
+                if (removed) {
+                    favouriteAdapter.notifyDataSetChanged()
+                } else {
+                    Toast.makeText(activity, "Không tìm thấy sách để xóa", Toast.LENGTH_SHORT).show()
+                }
             }
             .addOnFailureListener {
                 Toast.makeText(activity, "Xóa không thành công: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 
     override fun onClickBook(position: Int, book: BooksModel) {
         val selectedBook = listFavouriteBook[position]

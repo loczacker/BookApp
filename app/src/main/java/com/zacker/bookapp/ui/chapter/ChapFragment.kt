@@ -61,20 +61,31 @@ class ChapFragment : Fragment() , AllChapAdapter.OnBookItemClickListener{
             .child("chapter").addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     listChap.clear()
+                    val chaptersMap = mutableMapOf<String, String>()
+
                     for (chapSnapshot in snapshot.children) {
                         val nameChap = chapSnapshot.key
                         val content = chapSnapshot.child("content").getValue(String::class.java)
                         if (nameChap != null && content != null) {
-                            val chapter = ChapsModel(nameChap, content)
-                            listChap.add(chapter)
+                            chaptersMap[nameChap] = content
                         }
                     }
+
+                    // Sắp xếp danh sách chương theo độ dài của tên chương
+                    val sortedChapters = chaptersMap.toList().sortedWith(compareBy { it.first.length })
+
+                    for (sortedChapter in sortedChapters) {
+                        val chapter = ChapsModel(sortedChapter.first, sortedChapter.second)
+                        listChap.add(chapter)
+                    }
+
                     allChapAdapter.notifyItemInserted(listChap.size)
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
             })
     }
+
 
     private fun setListener() {
         binding.imgBack.setOnClickListener {

@@ -71,11 +71,9 @@ RandomBookAdapter.OnBookItemClickListener{
                         }
                     }
 
-                    // Sắp xếp danh sách sách ngẫu nhiên
                     randomBooks.shuffle()
 
-                    // Giới hạn số sách bạn muốn hiển thị (ví dụ: 5 sách ngẫu nhiên)
-                    val randomBooksToShow = randomBooks.take(10)
+                    val randomBooksToShow = randomBooks.take(20)
                     listRandomBook.clear()
                     listRandomBook.addAll(randomBooksToShow)
                     randomBookAdapter.notifyDataSetChanged()
@@ -93,29 +91,39 @@ RandomBookAdapter.OnBookItemClickListener{
 
         database.reference.child("Books")
             .orderByChild("timeStamp")
-            .limitToLast(10)
+            .limitToLast(20)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    listNewBook.clear()
+                    val newBooks = mutableListOf<BooksModel>()
+
                     for (bookSnapshot in snapshot.children) {
                         val nameBook = bookSnapshot.child("nameBook").getValue(String::class.java)
                         val img = bookSnapshot.child("img").getValue(String::class.java)
                         val writerName = bookSnapshot.child("writerName").getValue(String::class.java)
                         val introduction = bookSnapshot.child("introduction").getValue(String::class.java)
                         val category = bookSnapshot.child("category").getValue(String::class.java)
-                        if (nameBook != null && img != null && writerName != null) {
-                            val book = BooksModel(nameBook, writerName, img, introduction, category)
-                            listNewBook.add(book)
+                        val timeStamp = bookSnapshot.child("timeStamp").getValue(Long::class.java)
+
+                        if (nameBook != null && img != null && writerName != null && timeStamp != null) {
+                            val book = BooksModel(nameBook, writerName, img, introduction, category, timeStamp)
+                            newBooks.add(book)
                         }
                     }
-                    listNewBook.sortByDescending { it.timeStamp }
-                    newBookAdapter.notifyItemInserted(listNewBook.size)
+                    newBooks.sortByDescending { it.timeStamp }
+
+                    listNewBook.clear()
+                    listNewBook.addAll(newBooks)
+                    newBookAdapter.notifyDataSetChanged()
                 }
+
                 override fun onCancelled(error: DatabaseError) {
                     Log.e("FirebaseError", "Database Error: $error")
                 }
             })
     }
+
+
+
 
 
     private fun setListeners() {

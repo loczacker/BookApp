@@ -1,35 +1,28 @@
-package com.zacker.bookapp.ui.home
+package com.zacker.bookapp.ui.homeAdmin
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.FirebaseDatabase
 import com.zacker.bookapp.R
-import com.zacker.bookapp.databinding.FragmentHomeBinding
-import java.text.SimpleDateFormat
-import java.util.Date
+import com.zacker.bookapp.databinding.FragmentHomeAdminBinding
+import com.zacker.bookapp.ui.home.ViewPagerHomeAdapter
 
-class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeViewModel
+class HomeAdminFragment : Fragment() {
+
+    private lateinit var binding: FragmentHomeAdminBinding
     private var isViewPagerScrollEnabled = true
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        binding.lifecycleOwner = viewLifecycleOwner
+    ): View? {
+        binding = FragmentHomeAdminBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,15 +32,14 @@ class HomeFragment : Fragment() {
         setUpBottom()
     }
 
-
     private fun setUpBottom() {
-        val viewPagerHomeAdapter = ViewPagerHomeAdapter(this)
-        binding.vpShare.adapter = viewPagerHomeAdapter
-        binding.vpShare.isUserInputEnabled = isViewPagerScrollEnabled  // Bật hoặc tắt sự kiện vuốt
+            val viewPagerHomeAdminAdapter = ViewPagerHomeAdminAdapter(this)
+        binding.vpShare.adapter = viewPagerHomeAdminAdapter
+        binding.vpShare.isUserInputEnabled = isViewPagerScrollEnabled
         binding.vpShare.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 when (position) {
-                    1 -> binding.bottomNavigationView.menu.findItem(R.id.nav_book_case).isChecked = true
+                    1 -> binding.bottomNavigationView.menu.findItem(R.id.nav_book_create).isChecked = true
                     0 -> binding.bottomNavigationView.menu.findItem(R.id.nav_discover).isChecked = true
                     2 -> binding.bottomNavigationView.menu.findItem(R.id.nav_profile).isChecked = true
                 }
@@ -70,5 +62,4 @@ class HomeFragment : Fragment() {
             true
         })
     }
-
 }

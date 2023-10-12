@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -53,10 +54,12 @@ class RegisterFragment : Fragment() {
 
         }
         binding.tvLoginRegister.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_loginFragment, null)
+//            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_loginFragment, null)
+            Navigation.findNavController(requireView()).navigateUp()
         }
         binding.ibRes.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_loginFragment, null)
+//            NavHostFragment.findNavController(this).navigate(R.id.action_registerFragment_to_loginFragment, null)
+            Navigation.findNavController(requireView()).navigateUp()
         }
         binding.tvForgot.setOnClickListener {
             forgotPassword()

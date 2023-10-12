@@ -19,6 +19,7 @@ import com.zacker.bookapp.R
 import com.zacker.bookapp.databinding.FragmentSearchBookBinding
 import com.zacker.bookapp.model.BooksModel
 import java.util.ArrayList
+import java.util.Locale
 
 
 class SearchBookFragment : Fragment(), BookSearchAdapter.OnBookItemClickListener {
@@ -93,13 +94,15 @@ class SearchBookFragment : Fragment(), BookSearchAdapter.OnBookItemClickListener
 
                     if (nameBook != null && img != null && writerName != null && introduction != null) {
                         val book = BooksModel(nameBook, writerName, img, introduction, category)
-                        if (nameBook.contains(searchQuery)) {
+                        if (nameBook.lowercase(Locale.getDefault()).contains(searchQuery.lowercase(
+                                Locale.getDefault()
+                            ))
+                        ) {
                             listSearchBook.add(book)
                         }
                     }
                 }
 
-                // Update your RecyclerView adapter here
                 bookSearchAdapter.notifyDataSetChanged()
             }
 
@@ -148,6 +151,6 @@ class SearchBookFragment : Fragment(), BookSearchAdapter.OnBookItemClickListener
         val selectedBook = listSearchBook[position]
         val bundle = Bundle()
         bundle.putSerializable("selectedBook", selectedBook)
-        NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_bookIntroductionFragment, bundle)
+        NavHostFragment.findNavController(this).navigate(R.id.action_searchBookFragment_to_bookIntroductionFragment, bundle)
     }
 }

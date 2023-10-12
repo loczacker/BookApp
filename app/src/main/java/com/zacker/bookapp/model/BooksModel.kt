@@ -8,6 +8,6 @@ data class BooksModel(
     var img: String ?= null,
     var introduction: String? = null,
     var category: String ?= null,
-    var chapter: ChapsModel ?= null,
-    var timeStamp: Int ?= null
+    var timeStamp: Long ?= null,
+    var chapter: ChapsModel ?= null
 ) : Serializable

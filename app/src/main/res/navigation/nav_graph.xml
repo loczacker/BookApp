@@ -15,6 +15,9 @@
         <action
             android:id="@+id/splash_to_home"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeAdminFragment"
+            app:destination="@id/homeAdminFragment" />
     </fragment>
 
     <fragment
@@ -27,6 +30,9 @@
         <action
             android:id="@+id/login_to_register"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeAdminFragment"
+            app:destination="@id/homeAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -125,5 +131,17 @@
     <fragment
         android:id="@+id/searchBookFragment"
         android:name="com.zacker.bookapp.ui.search.SearchBookFragment"
-        android:label="SearchBookFragment" />
+        android:label="SearchBookFragment" >
+        <action
+            android:id="@+id/action_searchBookFragment_to_bookIntroductionFragment"
+            app:destination="@id/bookIntroductionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeAdminFragment"
+        android:name="com.zacker.bookapp.ui.homeAdmin.HomeAdminFragment"
+        android:label="HomeAdminFragment" >
+        <action
+            android:id="@+id/action_homeAdminFragment_to_changeProfileFragment"
+            app:destination="@id/changeProfileFragment" />
+    </fragment>
 </navigation>

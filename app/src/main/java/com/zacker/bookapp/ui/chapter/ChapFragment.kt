@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -42,9 +44,7 @@ class ChapFragment : Fragment() , AllChapAdapter.OnBookItemClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         nameBook = arguments?.getString("nameBook").toString()
-        if (nameBook != null) {
-            showChapter(nameBook)
-        }
+        showChapter(nameBook)
         setupRecyclerView()
         setUpObserver()
         setListener()
@@ -88,16 +88,25 @@ class ChapFragment : Fragment() , AllChapAdapter.OnBookItemClickListener{
         val selectedChap = listChap[position]
         val bundleChap = Bundle()
         bundleChap.putSerializable("selectedChap", selectedChap)
-
         val bundleBook = Bundle()
         bundleBook.putString("nameBook", nameBook)
-
         val combinedBundle = Bundle()
         combinedBundle.putBundle("bundleChap", bundleChap)
         combinedBundle.putBundle("bundleBook", bundleBook)
-
-// Chuyển đến ReadBookFragment và truyền combinedBundle
         NavHostFragment.findNavController(this).navigate(R.id.action_chapFragment_to_readBookFragment, combinedBundle)
+        setViewedBook(nameBook)
+    }
 
+    private fun setViewedBook(nameBook: String) {
+        val database = FirebaseDatabase.getInstance()
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val userUid = firebaseAuth.uid
+        if (userUid != null) {
+            val userLikeBookRef = database.reference.child("Users")
+                .child(userUid).child("viewedBook").child(this.nameBook)
+            val viewedBookUpdates = HashMap<String, Any>()
+            viewedBookUpdates["Status"] = true
+            userLikeBookRef.updateChildren(viewedBookUpdates)
+        }
     }
 }

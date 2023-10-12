@@ -125,6 +125,9 @@ RandomBookAdapter.OnBookItemClickListener{
         binding.ibRandomBook.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.home_to_all_book, null)
         }
+        binding.ibSearch.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchBookFragment, null)
+        }
     }
 
     override fun onClick(position: Int) {

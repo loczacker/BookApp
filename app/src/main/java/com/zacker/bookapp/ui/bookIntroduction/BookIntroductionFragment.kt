@@ -114,9 +114,6 @@ class BookIntroductionFragment : Fragment() {
         }
     }
 
-
-
-
     private fun setUpObserver() {
         viewModel.nameBook.observe(viewLifecycleOwner) {
         }

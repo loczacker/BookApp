@@ -1,4 +1,4 @@
-package com.zacker.bookapp.ui.homeBookCase.booksViewed
+package com.zacker.bookapp.ui.search
 
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -10,18 +10,19 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.zacker.bookapp.R
 import com.zacker.bookapp.databinding.ItemBookDiscoverDetailBinding
-import com.zacker.bookapp.databinding.ItemViewedBinding
+import com.zacker.bookapp.databinding.ItemBookSearchBinding
 import com.zacker.bookapp.model.BooksModel
 
-class BookViewedAdapter(
+class BookSearchAdapter(
     private val books: List<BooksModel>,
     private val callback: OnBookItemClickListener
-) : RecyclerView.Adapter<BookViewedAdapter.ViewHolder>() {
-    class ViewHolder(private val binding: ItemViewedBinding):
+) : RecyclerView.Adapter<BookSearchAdapter.ViewHolder>() {
+    class ViewHolder(private val binding: ItemBookSearchBinding):
         RecyclerView.ViewHolder(binding.root) {
             fun bind(book: BooksModel) {
                 binding.tvNameBook.text = book.nameBook
                 binding.tvNameWriter.text = book.writerName
+                binding.tvCategory.text = book.category
                 Glide.with(binding.imgBook.context)
                     .load(book.img)
                     .into(binding.imgBook)
@@ -30,7 +31,7 @@ class BookViewedAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemViewedBinding.inflate(
+            ItemBookSearchBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

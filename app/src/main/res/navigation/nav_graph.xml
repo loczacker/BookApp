@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_homeFragment_to_bookIntroductionFragment"
             app:destination="@id/bookIntroductionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchBookFragment"
+            app:destination="@id/searchBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -119,4 +122,8 @@
         android:name="com.zacker.bookapp.ui.readbook.ReadBookFragment"
         android:label="fragment_read_book"
         tools:layout="@layout/fragment_read_book" />
+    <fragment
+        android:id="@+id/searchBookFragment"
+        android:name="com.zacker.bookapp.ui.search.SearchBookFragment"
+        android:label="SearchBookFragment" />
 </navigation>

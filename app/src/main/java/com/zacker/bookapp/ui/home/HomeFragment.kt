@@ -35,26 +35,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        database = FirebaseDatabase.getInstance()
-        addDatabase()
         setUpViewPager()
         setUpBottom()
-    }
-
-    private fun addDatabase() {
-//        val timeStamp = System.currentTimeMillis()
-//        val hashMap: HashMap<String, Any> = HashMap()
-//        val nameBook = "Người Người Cưng Chiều Sư Muội Miệng Quạ Đen"
-//        hashMap["writerName"] = "Hùng Ngận Manh"
-//        hashMap["img"] = "https://firebasestorage.googleapis.com/v0/b/bookapp-3329e.appspot.com/o/img%2Fnguoinguoicungchieu.jpeg?alt=media&token=054368e1-64f5-42ee-805b-1a9abe67eabb"
-//        hashMap["introduction"] = "Hoa Linh Cơ chưa bao giờ ngờ tới, kiếp trước mình là sữa độc (*), kiếp này lại thành quạ đen, thiên phú nguyền rủa level max. Có còn để nàng sống nữa không hả!"
-//        hashMap["category"] = "Tiên Hiệp"
-//        hashMap["chapter"] = ""
-//        hashMap["timeStamp"] = timeStamp
-//        database.reference.child("Books").child(nameBook).setValue(hashMap).addOnCompleteListener{
-//            if (it.isSuccessful){
-//            }
-//        }
     }
 
     private fun setUpBottom() {

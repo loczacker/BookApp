@@ -74,7 +74,7 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressDialog = ProgressDialog(activity)
-        progressDialog.setTitle("Please wait")
+        progressDialog.setTitle("Vui lòng đợi")
         progressDialog.setCanceledOnTouchOutside(false)
         firebaseAuth = FirebaseAuth.getInstance()
         loadUserInfo()
@@ -169,7 +169,7 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                 if (selectedTimestamp <= currentTimestamp) {
                     binding.edBirthdayChange.setText(dateFormat.format(selectedTimestamp))
                 } else {
-                    Toast.makeText(activity, "Select a date smaller than the current date", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Chọn đúng ngày", Toast.LENGTH_SHORT).show()
                 }
             },
             calendar.get(Calendar.YEAR),
@@ -213,7 +213,7 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     }
 
     private fun updateProfile(uploadedImageUrl: String) {
-        progressDialog.setMessage("Updating profile...")
+        progressDialog.setMessage("Cập nhật thông tin")
         val hashMap: HashMap<String, Any> = HashMap()
         hashMap["name"] = name
         hashMap["phone"] = phone
@@ -227,7 +227,7 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             .updateChildren(hashMap)
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(activity, "Profile update ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Cập nhật ", Toast.LENGTH_SHORT).show()
                 Navigation.findNavController(requireView()).navigateUp()
 
             }
@@ -238,7 +238,7 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     }
 
     private fun uploadImage() {
-        progressDialog.setMessage("Uploading profile image")
+        progressDialog.setMessage("đang tải thông tin")
         progressDialog.show()
         val filePathAndName = "img/" + firebaseAuth.uid
         val reference = FirebaseStorage.getInstance().getReference(filePathAndName)
@@ -293,17 +293,12 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         popupMenu.setOnMenuItemClickListener { item ->
             val id = item.itemId
             if (id == 0) {
-                // camera clicked
-                // Đặt yêu cầu quyền Camera ở đây nếu được chọn
                 pickImageCamera()
             } else if (id == 1) {
-                //Gallery clicked
-                // Đặt yêu cầu quyền READ_EXTERNAL_STORAGE ở đây nếu được chọn
                 picImageGallery()
             }
             true
         }
-        // Gọi show() sau khi thiết lập xong các sự kiện
         popupMenu.show()
     }
 
@@ -338,7 +333,6 @@ class ChangeProfileFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                 Toast.makeText(requireContext(), "Không thể tải ảnh.", Toast.LENGTH_SHORT).show()
             }
         } else if (result.resultCode == Activity.RESULT_CANCELED) {
-            // Xử lý trường hợp người dùng hủy chụp ảnh
         } else {
             Toast.makeText(requireContext(), "Lỗi khi chụp ảnh.", Toast.LENGTH_SHORT).show()
         }

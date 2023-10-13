@@ -71,7 +71,7 @@ class LoginFragment : Fragment() {
         }
         viewModel.showToast.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let {
-                Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -131,11 +131,11 @@ class LoginFragment : Fragment() {
                 .addOnSuccessListener {
                     dialogBinding.etEmail.clearFocus()
                     dialogBinding.etEmail.text.clear()
-                    Toast.makeText(activity, "Check your Email!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Kiểm tra email", Toast.LENGTH_SHORT).show()
                     dialog.cancel()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Try again", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Thử lại", Toast.LENGTH_SHORT).show()
                 }
         }
         dialog.show()
